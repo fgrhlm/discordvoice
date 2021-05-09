@@ -1,0 +1,34 @@
+{
+    "commands": [
+        {
+            "name": "SpladiBOT - Play youtube video",
+            "triggers": ["play", "ple", "plai", "ply", "pley","stream","strem","stree"],
+            "hasQuery": true,
+            "output": "!p"
+        },
+        {
+            "name": "SpladiBOT - Clear audio queue",
+            "triggers": ["clear","clear queue"],
+            "hasQuery": false,
+            "output": "!clear"
+        },
+        {
+            "name": "SpladiBOT - Skip current item in queue",
+            "triggers": ["skip"],
+            "hasQuery": false,
+            "output": "!skip"
+        },
+        {
+            "name": "SpladiBOT - Pause audio",
+            "triggers": ["pause","stop"],
+            "hasQuery": false,
+            "output": "!pause"
+        },
+        {
+            "name": "SpladiBOT - Resume audio queue",
+            "triggers": ["continue","resume"],
+            "hasQuery": false,
+            "output": "!resume"
+        }
+    ]
+}

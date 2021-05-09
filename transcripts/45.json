@@ -1,0 +1,34 @@
+{
+  "transcripts": [
+    {
+      "confidence": -7.6185173988342285,
+      "words": [
+        {
+          "word": "thus",
+          "start_time": 0.52,
+          "duration": 0.14
+        }
+      ]
+    },
+    {
+      "confidence": -10.294530868530273,
+      "words": [
+        {
+          "word": "that",
+          "start_time": 0.52,
+          "duration": 0.14
+        }
+      ]
+    },
+    {
+      "confidence": -10.763894081115723,
+      "words": [
+        {
+          "word": "this",
+          "start_time": 0.52,
+          "duration": 0.14
+        }
+      ]
+    }
+  ]
+}

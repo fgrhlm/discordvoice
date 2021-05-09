@@ -1,0 +1,49 @@
+{
+  "transcripts": [
+    {
+      "confidence": -10.882789611816406,
+      "words": [
+        {
+          "word": "play",
+          "start_time": 0.52,
+          "duration": 0.34
+        },
+        {
+          "word": "something",
+          "start_time": 0.92,
+          "duration": 0.38
+        }
+      ]
+    },
+    {
+      "confidence": -18.99268341064453,
+      "words": [
+        {
+          "word": "play",
+          "start_time": 0.52,
+          "duration": 0.34
+        },
+        {
+          "word": "something",
+          "start_time": 0.92,
+          "duration": 0.4
+        }
+      ]
+    },
+    {
+      "confidence": -20.17302703857422,
+      "words": [
+        {
+          "word": "plays",
+          "start_time": 0.52,
+          "duration": 0.34
+        },
+        {
+          "word": "something",
+          "start_time": 0.92,
+          "duration": 0.38
+        }
+      ]
+    }
+  ]
+}

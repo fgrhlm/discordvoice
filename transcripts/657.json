@@ -1,0 +1,39 @@
+{
+  "transcripts": [
+    {
+      "confidence": -13.34460735321045,
+      "words": [
+        {
+          "word": "testing",
+          "start_time": 0.62,
+          "duration": 0.4
+        }
+      ]
+    },
+    {
+      "confidence": -15.899290084838867,
+      "words": [
+        {
+          "word": "tasting",
+          "start_time": 0.62,
+          "duration": 0.4
+        }
+      ]
+    },
+    {
+      "confidence": -16.401037216186523,
+      "words": [
+        {
+          "word": "the",
+          "start_time": 0.62,
+          "duration": 0.1
+        },
+        {
+          "word": "thing",
+          "start_time": 0.78,
+          "duration": 0.24
+        }
+      ]
+    }
+  ]
+}
