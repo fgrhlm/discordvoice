@@ -4,3 +4,4 @@ env/
 *.wav
 *.pcm
 *.json
+node_modules/
