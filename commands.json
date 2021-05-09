@@ -20,7 +20,7 @@
         },
         {
             "name": "SpladiBOT - Pause audio",
-            "triggers": ["pause","stop"],
+            "triggers": ["pause","stop","pass","pauls","pose","pas"],
             "hasQuery": false,
             "output": "!pause"
         },
@@ -29,6 +29,30 @@
             "triggers": ["continue","resume"],
             "hasQuery": false,
             "output": "!resume"
+        },
+        {
+            "name": "Joke",
+            "triggers": ["joke","jock"],
+            "hasQuery": false,
+            "output": "!tts Hear about the new restaurant called Karma? There’s no menu: You get what you deserve."
+        },
+        {
+            "name": "Oh Yeah",
+            "triggers": ["michael"],
+            "hasQuery": false,
+            "output": "!play mj1"
+        },
+        {
+            "name": "Daddy",
+            "triggers": ["daddy","chill"],
+            "hasQuery": false,
+            "output": "!play daddy_2"
+        },
+        {
+            "name": "Sommer",
+            "triggers": ["summer","sommer","sumerian","sumer","samer"],
+            "hasQuery": false,
+            "output": "!play sommerviisum"
         }
     ]
 }

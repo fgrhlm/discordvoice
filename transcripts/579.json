@@ -47,3 +47,42 @@
     }
   ]
 }
+{
+  "transcripts": [
+    {
+      "confidence": -40.511138916015625,
+      "words": [
+        {
+          "word": "play",
+          "start_time": 0.46,
+          "duration": 0.22
+        },
+        {
+          "word": "published",
+          "start_time": 0.72,
+          "duration": 0.62
+        }
+      ]
+    },
+    {
+      "confidence": -41.854949951171875,
+      "words": [
+        {
+          "word": "plautus",
+          "start_time": 0.46,
+          "duration": 0.78
+        }
+      ]
+    },
+    {
+      "confidence": -42.419517517089844,
+      "words": [
+        {
+          "word": "pleuritic",
+          "start_time": 0.46,
+          "duration": 0.88
+        }
+      ]
+    }
+  ]
+}
