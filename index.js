@@ -13,7 +13,7 @@ const connections = [];
 // Gunnars hemmakanaler
 
 const CHANNEL_OUTPUT_COMMANDS = "779462760610005022";   // Kanalen dit gunnar skickar ett upptäckt röstkommando för spladibot   //#spladi-bot
-const CHANNEL_VOICE_DETECTION = "649682325478572063";   // Kanalen där gunnar tolkar tal                                        //Slumpmässiga fakulteten
+const CHANNEL_VOICE_DETECTION = "771956455946452992";   // Kanalen där gunnar tolkar tal                                        //Slumpmässiga fakulteten
 const CHANNEL_OUTPUT_TRANSCRIPT = "840752797019406378"; // Kanalen dit gunnar skickar transkriptionen från deepspeech           //#gunnar
 
 // Parse in kommandon från commands.json
@@ -60,7 +60,7 @@ const DSInference = (audio,m) => {
 const resolveToSpladiCommand = (t) => {
     if(t == undefined)
         return;
-        
+
     let resolves = [];
 
     t.forEach((tObj) => {
