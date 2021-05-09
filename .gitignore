@@ -1,0 +1,6 @@
+__pycache__/
+deepspeech/
+env/
+*.wav
+*.pcm
+*.json
