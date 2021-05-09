@@ -3,7 +3,7 @@ deepspeech/
 env/
 *.wav
 *.pcm
-node_modules/
+**/node_modules
 raw/
 record/
 transcripts/
