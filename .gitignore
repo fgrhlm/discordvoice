@@ -7,3 +7,4 @@ env/
 raw/
 record/
 transcripts/
+.env
