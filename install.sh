@@ -9,9 +9,15 @@
 # sudo apt install ffmpeg
  
 echo "Starting installation..."
+ls -lah
+whoami
+
+
+echo "Removing the existing env directory:"
+rm -rf env
 
 echo "Creating virtual environment.."
-python3 -m venv --system-site-packages env
+python3 -m venv env
 
 mkdir raw record transcripts deepspeech
 
@@ -21,21 +27,39 @@ source ./env/bin/activate
 echo "Upgrading pip.."
 pip install --upgrade pip
 
+echo "--force-reinstall virtualenvwrapper"
+pip install --force-reinstall virtualenvwrapper
+
 echo "Installing Deepspeech.."
-pip install deepspeech
+pip install --force-reinstall deepspeech
 
 echo "Exiting virtual environment!"
 deactivate
 
 echo "Downloading Models.."
 cd deepspeech
+
+
+
+FILE_DEEPSPEECH_PBMM=deepspeech-0.9.3-models.pbmm
+if [ ! -f "$FILE_DEEPSPEECH_PBMM" ]; then
+    wget -nc -q "https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm" 
+fi
+
+FILE_DEEPSPEECH_SCORER=deepspeech-0.9.3-models.scorer
+if [ ! -f "$FILE_DEEPSPEECH_SCORER" ]; then
+    wget -nc -q "https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer" 
+fi
+
 # curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm
 # curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer
-wget -nc -q "https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm" 
-wget -nc -q "https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer" 
+
+
 cd ..
 
 echo "Installing npm packages"
+ls -la 
+whoami
 npm install
 
 echo "==========================="

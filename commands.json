@@ -53,6 +53,18 @@
             "triggers": ["summer","sommer","sumerian","sumer","samer"],
             "hasQuery": false,
             "output": "!play sommerviisum"
+        },
+        {
+            "name": "Harry",
+            "triggers": ["harry", "harri"],
+            "hasQuery": false,
+            "output": "!play harry"
+        },
+        {
+            "name": "Queue",
+            "triggers": ["list", "last"],
+            "hasQuery": false,
+            "output": "!q"
         }
     ]
 }

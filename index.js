@@ -114,7 +114,7 @@ const sendNiceDiscordLog = (t, m) => {
     });
 
     if (str.length <= 0) {
-        str = '\u200B'
+        return
     }
 
     client.channels.fetch(CHANNEL_OUTPUT_TRANSCRIPT).then((channel) => {
@@ -156,8 +156,12 @@ client.on("ready", () => {
             // När strömmen stängs (dähär skeer automagiskt) så konverterar vi skiten o kör genom deepspeech
             audio.pipe(
                 fs.createWriteStream(`./raw/${now_string}.pcm`).on("finish", () => {
-                    ffmpegConvert(now_string);
-                    DSInference(now_string, m);
+                    try {
+                        ffmpegConvert(now_string);
+                        DSInference(now_string, m);
+                    } catch (error) {
+                        console.error(error)
+                    }
                 })
             );
         }

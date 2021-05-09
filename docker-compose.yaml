@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+    discordvoice:
+        container_name: "discordvoice"
+        user: node
+
+        env_file:
+            - ".env"
+
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                VARIANT: "16"
+
+        restart: always
+
+        volumes:
+            - .:/app
+
+        command: bash -c "node index.js"
+
+volumes:
+    discordvoice-volume:
