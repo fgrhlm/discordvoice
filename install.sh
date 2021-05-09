@@ -11,7 +11,9 @@
 echo "Starting installation..."
 
 echo "Creating virtual environment.."
-python3 -m venv env
+python3 -m venv --system-site-packages env
+
+mkdir raw record transcripts deepspeech
 
 echo "Entering virtual environment.."
 source ./env/bin/activate
@@ -26,9 +28,11 @@ echo "Exiting virtual environment!"
 deactivate
 
 echo "Downloading Models.."
-mkdir deepspeech && cd deepspeech
-curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm
-curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer
+cd deepspeech
+# curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm
+# curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer
+wget -nc -q "https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm" 
+wget -nc -q "https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer" 
 cd ..
 
 echo "Installing npm packages"

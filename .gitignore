@@ -4,3 +4,6 @@ env/
 *.wav
 *.pcm
 node_modules/
+raw/
+record/
+transcripts/
