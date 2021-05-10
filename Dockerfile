@@ -18,4 +18,4 @@ RUN chown -R node:node /app
 RUN chmod a+x install.sh
 
 USER node
-RUN /bin/bash ./install.sh
+CMD ["./install.sh"]

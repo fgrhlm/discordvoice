@@ -46,7 +46,7 @@ const DSInference = (audio, m) => {
         `${_PATH_}/env/bin/deepspeech --model ${_PATH_}/deepspeech/deepspeech-0.9.3-models.pbmm --scorer ${_PATH_}/deepspeech/deepspeech-0.9.3-models.scorer --json --audio ${_PATH_}/record/${audio}.wav >> ${_PATH_}/transcripts/${audio}.json && rm ./record/${audio}.wav`,
         async (stdout, stderr) => {
             // Dehär e jävligt hackigt...
-            if (stderr.length >= 0) {
+            if (stderr.length > 0) {
                 console.log({
                     _PATH_: _PATH_,
                     audio,
@@ -135,13 +135,18 @@ const sendNiceDiscordLog = async (t, m) => {
 client.on("ready", () => {
     // Gunnar connectar automatiskt till CHANNEL_VOICE_DETECTION
     console.log(`Logged in as ${client.user.tag}!`);
-    cleanup()
-    
-    client.channels.fetch(CHANNEL_VOICE_DETECTION).then((channel) => {
-        channel.join().then((con) => {
-            connections.push(con);
+    cleanup();
+
+    client.channels
+        .fetch(CHANNEL_VOICE_DETECTION)
+        .then((channel) => {
+            channel.join().then((con) => {
+                connections.push(con);
+            });
+        })
+        .catch((error) => {
+            console.error(error);
         });
-    });
 
     client.on("guildMemberSpeaking", (m, s) => {
         // Hämtar nyast voice connectionen
@@ -181,14 +186,13 @@ const cleanup = () => {
     exec(`rm ./transcripts/*.json`);
     exec(`rm ./raw/*.pcm`);
     exec(`rm ./record/*.wav`);
-}
+};
 
 // Graceful shutdown of the Node process
 process.on("SIGINT", function () {
     console.log("\nGracefully shutting down from SIGINT (Ctrl-C)");
-    cleanup()
+    cleanup();
     process.exit();
 });
-
 
 client.login(process.env.TOKEN);

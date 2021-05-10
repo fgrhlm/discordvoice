@@ -2,37 +2,37 @@
     "commands": [
         {
             "name": "SpladiBOT - Play youtube video",
-            "triggers": ["play", "ple", "plai", "ply", "pley","stream","strem","stree"],
+            "triggers": ["play", "ple", "plai", "ply", "pley", "stream", "strem", "stree"],
             "hasQuery": true,
             "output": "!p"
         },
         {
             "name": "SpladiBOT - Clear audio queue",
-            "triggers": ["clear","clear queue"],
+            "triggers": ["clear", "clear queue"],
             "hasQuery": false,
             "output": "!clear"
         },
         {
             "name": "SpladiBOT - Skip current item in queue",
-            "triggers": ["skip"],
+            "triggers": ["skip", "next"],
             "hasQuery": false,
             "output": "!skip"
         },
         {
             "name": "SpladiBOT - Pause audio",
-            "triggers": ["pause","stop","pass","pauls","pose","pas"],
+            "triggers": ["pause", "stop", "pass", "pauls", "pose", "pas"],
             "hasQuery": false,
             "output": "!pause"
         },
         {
             "name": "SpladiBOT - Resume audio queue",
-            "triggers": ["continue","resume"],
+            "triggers": ["continue", "resume"],
             "hasQuery": false,
             "output": "!resume"
         },
         {
             "name": "Joke",
-            "triggers": ["joke","jock"],
+            "triggers": ["joke", "jock"],
             "hasQuery": false,
             "output": "!tts Hear about the new restaurant called Karma? There’s no menu: You get what you deserve."
         },
@@ -44,13 +44,13 @@
         },
         {
             "name": "Daddy",
-            "triggers": ["daddy","chill"],
+            "triggers": ["daddy", "chill"],
             "hasQuery": false,
             "output": "!play daddy_2"
         },
         {
             "name": "Sommer",
-            "triggers": ["summer","sommer","sumerian","sumer","samer"],
+            "triggers": ["summer", "sommer", "sumerian", "sumer", "samer"],
             "hasQuery": false,
             "output": "!play sommerviisum"
         },
