@@ -65,3 +65,5 @@ npm install
 
 echo "==========================="
 echo "Install finished!"
+
+exit

@@ -16,7 +16,7 @@ services:
         volumes:
             - .:/app
 
-        command: "node index.js"
+        command: /bin/bash -c "./install.sh && node index.js"
 
 volumes:
     discordvoice-volume:
