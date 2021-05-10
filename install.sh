@@ -9,7 +9,7 @@
 # sudo apt install ffmpeg
  
 echo "Starting installation..."
-ls -lah
+pwd
 whoami
 
 
@@ -19,6 +19,7 @@ rm -rf env
 echo "Creating virtual environment.."
 python3 -m venv env
 
+echo "Creating directories"
 mkdir raw record transcripts deepspeech
 
 echo "Entering virtual environment.."
@@ -58,7 +59,7 @@ fi
 cd ..
 
 echo "Installing npm packages"
-ls -la 
+pwd
 whoami
 npm install
 

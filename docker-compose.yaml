@@ -10,15 +10,13 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-            args:
-                VARIANT: "16"
 
         restart: always
 
         volumes:
             - .:/app
 
-        command: bash -c "node index.js"
+        command: "node index.js"
 
 volumes:
     discordvoice-volume:
