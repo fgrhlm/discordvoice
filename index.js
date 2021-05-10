@@ -55,8 +55,13 @@ const DSInference = (audio, m) => {
                 });
             }
 
-            let raw = fs.readFileSync(`${_PATH_}/transcripts/${audio}.json`);
-            let transcript = JSON.parse(raw);
+            let transcript;
+            try {
+                let raw = fs.readFileSync(`${_PATH_}/transcripts/${audio}.json`);
+                transcript = JSON.parse(raw);
+            } catch (error) {
+                console.error(error);
+            }
 
             await Promise.all([sendNiceDiscordLog(transcript, m), resolveToSpladiCommand(transcript.transcripts)]);
             exec(`rm ./transcripts/${audio}.json`);
@@ -149,8 +154,8 @@ client.on("ready", () => {
         });
 
     client.on("guildMemberSpeaking", (m, s) => {
-	// Lyssn int på Spladibot -> skapar myki onödig python CPU usage
-	if (m.user.bot === true) return
+        // Lyssn int på Spladibot -> skapar myki onödig python CPU usage
+        if (m.user.bot === true) return;
 
         // Hämtar nyast voice connectionen
         const con = connections[connections.length - 1];
