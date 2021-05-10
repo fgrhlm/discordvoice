@@ -149,6 +149,9 @@ client.on("ready", () => {
         });
 
     client.on("guildMemberSpeaking", (m, s) => {
+	// Lyssn int på Spladibot -> skapar myki onödig python CPU usage
+	if (m.user.bot === true) return
+
         // Hämtar nyast voice connectionen
         const con = connections[connections.length - 1];
         // s -> er en boolean om guildMembern talar eller int
