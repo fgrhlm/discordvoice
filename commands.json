@@ -62,7 +62,7 @@
         },
         {
             "name": "Queue",
-            "triggers": ["list", "last", "lest", "show", "so"],
+            "triggers": ["list", "lest", "last"],
             "hasQuery": false,
             "output": "!q"
         }
