@@ -33,7 +33,8 @@ const ffmpegConvert = (name) => {
     Int na vits ti bry se i stdout output, gar int ti gjö na åt saken ifall he skiter se 
     dessutom så bord int exec kast na exceptions..
     */
-    exec(`ffmpeg -f s16le -ar 48k -ac 2 -i ./raw/${name}.pcm ./record/${name}.wav && rm ./raw/${name}.pcm`);
+    // exec(`ffmpeg -f s16le -ar 48k -ac 2 -i ./raw/${name}.pcm ./record/${name}.wav && rm ./raw/${name}.pcm`);
+    exec(`ffmpeg -f s16le -ar 32k -ac 1 -i ./raw/${name}.pcm ./record/${name}.wav && rm ./raw/${name}.pcm`);
 };
 
 // Kör exporterat ljudklipp genom Deepspeech. Genererar en JSON fil innehållandes inferensen. Parsar JSON filn fö användning
@@ -64,9 +65,10 @@ const DSInference = (audio, m) => {
             }
 
             await Promise.all([sendNiceDiscordLog(transcript, m), resolveToSpladiCommand(transcript.transcripts)]);
-            exec(`rm ./transcripts/${audio}.json`);
         }
     );
+
+    exec(`rm ./transcripts/${audio}.json`);
 };
 
 // Väger resultat från deepspeech och reder ut om he e ett spladibot kommando
@@ -85,7 +87,8 @@ const resolveToSpladiCommand = async (t) => {
                         let r = w.word.search(t);
                         if (r > -1) {
                             let query = "";
-                            for (let i = idx + 1; i < tObj.words.length; i++) {
+                            const wordsLength = tObj.words.length
+                            for (let i = idx + 1; i < wordsLength; i++) {
                                 query += tObj.words[i].word + " ";
                             }
                             if (c.hasQuery) {
@@ -123,7 +126,7 @@ const sendNiceDiscordLog = async (t, m) => {
         return;
     }
 
-    client.channels.fetch(CHANNEL_OUTPUT_TRANSCRIPT).then((channel) => {
+    await client.channels.fetch(CHANNEL_OUTPUT_TRANSCRIPT).then((channel) => {
         const embed = new Discord.MessageEmbed()
             .setColor("#0099ff")
             .setTitle("Gunnar - STT (Speech to Text)")
