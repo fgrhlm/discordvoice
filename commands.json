@@ -20,7 +20,7 @@
         },
         {
             "name": "SpladiBOT - Pause audio",
-            "triggers": ["pause", "stop", "pass", "pauls", "pose", "pas"],
+            "triggers": ["stop"],
             "hasQuery": false,
             "output": "!pause"
         },
