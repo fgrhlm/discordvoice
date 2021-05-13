@@ -139,7 +139,7 @@ const sendNiceDiscordLog = async (t, m) => {
 /////////////////
 /* DISCORD.JS  */
 /////////////////
-client.on("ready", () => {
+client.on("ready", async () => {
     // Gunnar connectar automatiskt till CHANNEL_VOICE_DETECTION
     console.log(`Logged in as ${client.user.tag}!`);
     cleanup();
