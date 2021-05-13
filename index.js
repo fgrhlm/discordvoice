@@ -34,7 +34,7 @@ const ffmpegConvert = (name) => {
     dessutom så bord int exec kast na exceptions..
     */
     // exec(`ffmpeg -f s16le -ar 48k -ac 2 -i ./raw/${name}.pcm ./record/${name}.wav && rm ./raw/${name}.pcm`);
-    exec(`ffmpeg -f s16le -ar 32k -ac 1 -i ./raw/${name}.pcm ./record/${name}.wav && rm ./raw/${name}.pcm`);
+    exec(`ffmpeg -threads 1 -f s16le -ar 48k -ac 1 -i ./raw/${name}.pcm ./record/${name}.wav && rm ./raw/${name}.pcm`);
 };
 
 // Kör exporterat ljudklipp genom Deepspeech. Genererar en JSON fil innehållandes inferensen. Parsar JSON filn fö användning
@@ -144,7 +144,7 @@ client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
     cleanup();
 
-    client.channels
+    await client.channels
         .fetch(CHANNEL_VOICE_DETECTION)
         .then((channel) => {
             channel.join().then((con) => {
