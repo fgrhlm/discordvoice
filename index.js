@@ -65,10 +65,9 @@ const DSInference = (audio, m) => {
             }
 
             await Promise.all([sendNiceDiscordLog(transcript, m), resolveToSpladiCommand(transcript.transcripts)]);
+            exec(`rm ./transcripts/${audio}.json`);
         }
     );
-
-    exec(`rm ./transcripts/${audio}.json`);
 };
 
 // Väger resultat från deepspeech och reder ut om he e ett spladibot kommando
@@ -87,7 +86,7 @@ const resolveToSpladiCommand = async (t) => {
                         let r = w.word.search(t);
                         if (r > -1) {
                             let query = "";
-                            const wordsLength = tObj.words.length
+                            const wordsLength = tObj.words.length;
                             for (let i = idx + 1; i < wordsLength; i++) {
                                 query += tObj.words[i].word + " ";
                             }
