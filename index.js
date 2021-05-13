@@ -33,8 +33,7 @@ const ffmpegConvert = (name) => {
     Int na vits ti bry se i stdout output, gar int ti gjö na åt saken ifall he skiter se 
     dessutom så bord int exec kast na exceptions..
     */
-    // exec(`ffmpeg -f s16le -ar 48k -ac 2 -i ./raw/${name}.pcm ./record/${name}.wav && rm ./raw/${name}.pcm`);
-    exec(`ffmpeg -threads 1 -f s16le -ar 48k -ac 1 -i ./raw/${name}.pcm ./record/${name}.wav && rm ./raw/${name}.pcm`);
+    exec(`ffmpeg -f s16le -ar 48k -ac 2 -i ./raw/${name}.pcm ./record/${name}.wav && rm ./raw/${name}.pcm`);
 };
 
 // Kör exporterat ljudklipp genom Deepspeech. Genererar en JSON fil innehållandes inferensen. Parsar JSON filn fö användning
@@ -65,7 +64,11 @@ const DSInference = (audio, m) => {
             }
 
             await Promise.all([sendNiceDiscordLog(transcript, m), resolveToSpladiCommand(transcript.transcripts)]);
-            exec(`rm ./transcripts/${audio}.json`);
+            try {
+                exec(`rm ./transcripts/${audio}.json`);
+            } catch (error) {
+                console.log(``);
+            }
         }
     );
 };
