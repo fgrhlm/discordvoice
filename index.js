@@ -67,10 +67,14 @@ const DSInference = (audio, m) => {
             try {
                 exec(`rm ./transcripts/${audio}.json`);
             } catch (error) {
-                console.log(``);
+                console.log("Known error");
+                console.error(error);
             }
         }
-    );
+    ).on("error", () => {
+        console.log("Known error");
+        console.error(error);
+    });
 };
 
 // Väger resultat från deepspeech och reder ut om he e ett spladibot kommando
